@@ -274,14 +274,15 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 							if (mMode == Mode.BOTH) {
 								mCurrentMode = Mode.PULL_FROM_START;
 							}
-						} else if (mMode.showFooterLoadingLayout() && diff <= -1f && isReadyForPullEnd()) {
-							mLastMotionY = y;
-							mLastMotionX = x;
-							mIsBeingDragged = true;
-							if (mMode == Mode.BOTH) {
-								mCurrentMode = Mode.PULL_FROM_END;
-							}
-						}
+						} 
+//							else if (mMode.showFooterLoadingLayout() && diff <= -1f && isReadyForPullEnd()) {
+//							mLastMotionY = y;
+//							mLastMotionX = x;
+//							mIsBeingDragged = true;
+//							if (mMode == Mode.BOTH) {
+//								mCurrentMode = Mode.PULL_FROM_END;
+//							}
+//						}
 					}
 				}
 				break;
