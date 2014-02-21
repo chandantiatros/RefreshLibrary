@@ -49,7 +49,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
 	private FrameLayout mInnerLayout;
 
-	protected final ImageView mHeaderImage;
+	protected ImageView mHeaderImage;
 	protected final ProgressBar mHeaderProgress;
 
 	private boolean mUseIntrinsicAnimation;
@@ -83,21 +83,23 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 		mHeaderText = (TextView) mInnerLayout.findViewById(R.id.pull_to_refresh_text);
 		mHeaderProgress = (ProgressBar) mInnerLayout.findViewById(R.id.pull_to_refresh_progress);
 		mSubHeaderText = (TextView) mInnerLayout.findViewById(R.id.pull_to_refresh_sub_text);
-		mHeaderImage = (ImageView) mInnerLayout.findViewById(R.id.pull_to_refresh_image);
+		mHeaderImage=new ImageView(getContext());
 
 		FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mInnerLayout.getLayoutParams();
 
 		switch (mode) {
 			case PULL_FROM_END:
-				lp.gravity = scrollDirection == Orientation.VERTICAL ? Gravity.TOP : Gravity.LEFT;
-
-				// Load in labels
-				mPullLabel = context.getString(R.string.pull_to_refresh_from_bottom_pull_label);
-				mRefreshingLabel = context.getString(R.string.pull_to_refresh_from_bottom_refreshing_label);
-				mReleaseLabel = context.getString(R.string.pull_to_refresh_from_bottom_release_label);
+//				lp.gravity = scrollDirection == Orientation.VERTICAL ? Gravity.TOP : Gravity.LEFT;
+//
+//				// Load in labels
+//				mPullLabel = context.getString(R.string.pull_to_refresh_from_bottom_pull_label);
+//				mRefreshingLabel = context.getString(R.string.pull_to_refresh_from_bottom_refreshing_label);
+//				mReleaseLabel = context.getString(R.string.pull_to_refresh_from_bottom_release_label);
+				mHeaderImage = new ImageView(getContext());
 				break;
 
 			case PULL_FROM_START:
+				mHeaderImage = (ImageView) mInnerLayout.findViewById(R.id.pull_to_refresh_image);
 			default:
 				lp.gravity = scrollDirection == Orientation.VERTICAL ? Gravity.BOTTOM : Gravity.RIGHT;
 
